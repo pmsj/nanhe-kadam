@@ -16,4 +16,10 @@ class EditArticle extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    //redirecting to index page
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

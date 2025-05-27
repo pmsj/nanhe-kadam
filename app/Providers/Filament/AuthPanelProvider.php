@@ -28,10 +28,13 @@ class AuthPanelProvider extends PanelProvider
             ->id('auth')
             ->path('auth')
             ->registration()
+            ->passwordReset()
+            ->emailVerification()
+             ->sidebarCollapsibleOnDesktop()
             ->login()
             // ->profile()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Violet,
             ])
             ->plugin(
                 BreezyCore::make()

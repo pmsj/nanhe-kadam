@@ -15,9 +15,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PermissionResource extends Resource
 {
+    protected static ?string $navigationGroup = 'Authorization';
     protected static ?string $model = Permission::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-key';
 
     public static function form(Form $form): Form
     {
@@ -37,6 +38,7 @@ class PermissionResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->description('consistent permission name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('description')
                     ->searchable(),
