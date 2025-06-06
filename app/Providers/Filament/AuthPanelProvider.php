@@ -27,7 +27,7 @@ class AuthPanelProvider extends PanelProvider
             ->default()
             ->id('auth')
             ->path('auth')
-            ->registration()
+            // ->registration()
             ->passwordReset()
             ->emailVerification()
              ->sidebarCollapsibleOnDesktop()

@@ -28,12 +28,12 @@ class Article extends Model
     //function to truncate Article->body
     public function truncatedBody()
     {
-        return Str::words($this->body, 30); // Truncate after 30 words
+        return Str::words($this->body, 15); // Truncate after 30 words
     }
 
     public function truncatedTitle()
     {
-        return Str::words($this->title, 6); // Truncate after 30 words
+        return Str::words($this->title, 8); // Truncate after 30 words
     }
     
     // In your Article model (e.g., Article.php)

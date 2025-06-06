@@ -6,3 +6,32 @@
     - created migrations for permission, group and group_permissions
     * Added "Filament Breezy Package" for profile management
     * Installed "Sanctum" 
+#02/05/2025
+    - Created ImageCarousel Component,Model and migration
+    - carousel is working properly 
+    ? needs some customization
+        - position of Title mobile screen
+        - size of Title on mobile screen
+
+
+ public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+               Section::make('Announcement Details')
+                    ->collapsible()
+                    ->columns(3)
+                    ->schema([
+                        TextEntry::make('title'),
+                        TextEntry::make('description')
+                            ->html(),
+                ]),
+                Section::make('Article Details')
+                ->collapsible()
+                ->schema([
+                    TextEntry::make('is_published'),
+                    TextEntry::make('created_at'),
+                    TextEntry::make('expiry_date')
+                ])    
+            ]);
+    }
