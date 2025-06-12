@@ -15,10 +15,7 @@
         </x-tabs>
     </div>
     <!-- Our Team Section -->
-    <div class="my-10">
-        <x-card title="Our Team" subtitle="Our findings about you" separator></x-card>
-
-    </div>
+   <livewire:staff-members.our-team />
     <footer class="p-5 mt-10">
            <x-footer />
     </footer>

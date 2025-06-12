@@ -1,12 +1,25 @@
- <div class="mx-auto max-w-7xl">
+ <div class="mx-auto w-full mt-20">
      <div class=" p-2 flex justify-between">
          <div>
              <h2 class="text-xl font-bold">Nanhe Kadam</h2>
          </div>
          <div class="space-x-2">
-             <x-icon name="s-academic-cap" class="w-6 h-6" />
-             <x-icon name="s-academic-cap" class="w-6 h-6" />
-             <x-icon name="s-academic-cap" class="w-6 h-6" />
+            <a href="">
+                <x-icon 
+                    name="fab.youtube" 
+                    class="w-8 h-8 text-error transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" 
+            />
+            </a> <a href="">
+                <x-icon 
+                    name="fab.facebook" 
+                    class="w-6 h-6 text-blue-500 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" 
+                />
+            </a> <a href="">
+                <x-icon 
+                    name="fab.instagram" 
+                    class="w-6 h-6 text-pink-600 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" 
+                />
+            </a>
          </div>
      </div>
      <div class="p-10 space-y-10 lg:flex justify-between border-y-1 border-slate-100">

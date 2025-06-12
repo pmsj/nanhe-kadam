@@ -20,6 +20,9 @@ use App\Filament\Resources\AnnouncementResource\RelationManagers;
 
 class AnnouncementResource extends Resource
 {
+    protected static ?string $navigationGroup = 'Website';
+    protected static ?int $navigationSort = 2; 
+
     protected static ?string $model = Announcement::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-megaphone';

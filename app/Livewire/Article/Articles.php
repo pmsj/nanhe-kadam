@@ -2,25 +2,27 @@
 
 namespace App\Livewire\Article;
 
-use App\Models\User;
 use App\Models\Article;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Livewire\Attributes\Layout;
 
 class Articles extends Component
 {
-    public $articles;
-    public $user;
+    use WithPagination;
 
-    public function mount(User $user)
+    public  $pagination = 5;
+
+     public function updatingPagination()
     {
-        $this->user = $user;
-        // Fetch all articles from the database
-        $this->articles = Article::with('user')->latest()->get();
+        $this->resetPage(); // This is important to reset to page 1 when per-page changes
     }
 
     public function render()
     {
-        return view('livewire.article.articles');
+         $articles = Article::with('user')->latest()->paginate($this->pagination);
+        return view('livewire.article.articles', compact('articles'));
     }
+
+
 }

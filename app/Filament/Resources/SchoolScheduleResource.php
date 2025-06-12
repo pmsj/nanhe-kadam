@@ -18,7 +18,9 @@ class SchoolScheduleResource extends Resource
     protected static ?string $model = SchoolSchedule::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-calendar-date-range';
-    protected static ?string $navigationGroup = 'Time Table';
+    protected static ?string $navigationGroup = 'Website';
+    protected static ?int $navigationSort = 3; 
+
 
     public static function form(Form $form): Form
     {

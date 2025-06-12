@@ -19,6 +19,12 @@ class Article extends Model
         'body'
     ];
 
+        //display individual by slug
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -28,7 +34,7 @@ class Article extends Model
     //function to truncate Article->body
     public function truncatedBody()
     {
-        return Str::words($this->body, 15); // Truncate after 30 words
+        return Str::words($this->body, 30); // Truncate after 30 words
     }
 
     public function truncatedTitle()

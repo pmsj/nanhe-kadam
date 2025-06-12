@@ -25,6 +25,9 @@ use Filament\Infolists\Infolist;
 
 class ArticleResource extends Resource
 {
+    protected static ?string $navigationGroup = 'Website';
+    protected static ?int $navigationSort = 7; 
+
     protected static ?string $model = Article::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';

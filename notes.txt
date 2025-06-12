@@ -12,26 +12,8 @@
     ? needs some customization
         - position of Title mobile screen
         - size of Title on mobile screen
+#09/06/2025
+    - Using MaryUI (which is built on daisyUI)
+    - composer require owenvoke/blade-fontawesome
 
-
- public static function infolist(Infolist $infolist): Infolist
-    {
-        return $infolist
-            ->schema([
-               Section::make('Announcement Details')
-                    ->collapsible()
-                    ->columns(3)
-                    ->schema([
-                        TextEntry::make('title'),
-                        TextEntry::make('description')
-                            ->html(),
-                ]),
-                Section::make('Article Details')
-                ->collapsible()
-                ->schema([
-                    TextEntry::make('is_published'),
-                    TextEntry::make('created_at'),
-                    TextEntry::make('expiry_date')
-                ])    
-            ]);
-    }
+ 

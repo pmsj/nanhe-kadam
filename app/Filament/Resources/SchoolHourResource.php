@@ -19,7 +19,8 @@ class SchoolHourResource extends Resource
     protected static ?string $model = SchoolHour::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clock';
-    protected static ?string $navigationGroup = 'Time Table';
+    protected static ?string $navigationGroup = 'Website';
+    protected static ?int $navigationSort = 4; 
 
     public static function form(Form $form): Form
     {

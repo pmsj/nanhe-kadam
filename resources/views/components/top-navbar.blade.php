@@ -12,6 +12,6 @@
     {{-- Right side actions --}}
     <x-slot:actions>
         <x-button @click="$wire.showDrawer3 = true" label="Announcements" icon="o-megaphone"  class="btn-ghost btn-sm" responsive />
-        <x-button label="Login" icon="o-user-circle" link="/auth/login" class="btn-ghost btn-sm" responsive />
+        <x-button label="Login" icon="o-user-circle" link="/auth/login" class="btn-ghost btn-sm" responsive />  
     </x-slot:actions>
 </div>

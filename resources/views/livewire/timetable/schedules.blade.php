@@ -1,7 +1,7 @@
 <div>
     @if($schedules->count() > 0)
     <div class="my-20">
-        <x-card title="General Time Table" subtitle="Our findings about you" />
+        <x-card title="General Time Table" subtitle="School hours are displayed here." />
         <div class="lg:flex space-x-10 justify-center">
             <x-card title="Calender" subtitle="" separator class="text-center">
                 {{-- Shortcuts config to `locale`, `sunday-start` and weekend-highlight --}}

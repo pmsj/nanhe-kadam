@@ -18,6 +18,9 @@ use App\Filament\Resources\ImageCarouselResource\RelationManagers;
 
 class ImageCarouselResource extends Resource
 {
+    protected static ?string $navigationGroup = 'Website';
+    protected static ?int $navigationSort = 1; 
+    
     protected static ?string $model = ImageCarousel::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
