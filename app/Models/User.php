@@ -3,14 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Context;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Jeffgreco13\FilamentBreezy\Traits\TwoFactorAuthenticatable;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +24,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'permissions',
+        'avatar_url',
+    ];
+
+    protected $attributes = [
+        'permissions' => '[]',
     ];
 
     /**
@@ -43,6 +52,55 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'permissions' => 'array',
         ];
+    }
+
+    public function staff()
+    {
+        return $this->hasOne(Staff::class);
+    }
+
+        public function groups()
+    {
+        return $this->belongsToMany(Group::class);
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'permissions_users');
+    }
+
+
+    //new mehtods --------------------------------------------------------
+
+    public function getAllPermissions() {
+        if (Auth::user()->id === $this->id && Context::hasHidden('permissions')) {
+            return Context::getHidden('permissions');
+        }
+
+        $groupPermissions = $this
+            ->groups()
+            ->with('permissions')
+            ->get()
+            ->pluck('permissions')
+            ->flatten()
+            ->pluck('name');
+
+        $permissions = collect($this->permissions);
+
+        return $groupPermissions->merge($permissions)->unique()->map(function($item) {
+            return strtolower($item);
+        });
+    }
+
+    public function hasPermission(string $permission) : bool {
+        return $this->getAllPermissions()->contains(strtolower($permission));
+    }
+
+    public function hasAnyPermission(array $permissions) : bool {
+        $perms = array_map('strtolower', $permissions);
+
+        return $this->getAllPermissions()->intersect($perms)->isNotEmpty();
     }
 }

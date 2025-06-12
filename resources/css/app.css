@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@plugin "daisyui";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -8,4 +9,101 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer base{
+    h3 {
+        @apply  text-lg font-bold
+    }
+     h6 {
+        @apply  text-xs
+    }
+
+
+}
+
+@layer components {
+    .card{
+        @apply rounded-md px-6 py-8
+    }
+}
+
+
+@plugin "daisyui/theme" {
+  name: "mytheme";
+  default: true; /* set as default */
+  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: light; /* color of browser-provided UI */
+
+  --color-base-100: oklch(100% 0 0); /* fixed*/
+  --color-base-200: oklch(96% 0.007 247.896); /* fixed*/
+  --color-base-300: oklch(92% 0.013 255.508); /* fixed*/
+  --color-base-content: oklch(45% 0.085 224.283); /* */
+  --color-primary: #FFC900; /* fixed*/
+  --color-primary-content: oklch(27% 0.077 45.635);
+  --color-secondary: #1A5F7A; /* fixed*/    
+  --color-secondary-content: oklch(100% 0 0);
+  --color-accent: oklch(98% 0.003 247.858);
+  --color-accent-content: oklch(44% 0.043 257.281);
+  --color-neutral: oklch(98% 0.019 200.873);
+  --color-neutral-content: oklch(39% 0.09 240.876);
+  --color-info: oklch(88% 0.059 254.128);
+  --color-info-content: oklch(44% 0.043 257.281);
+  --color-success: oklch(79% 0.209 151.711);
+  --color-success-content: oklch(98% 0.002 247.839);
+  --color-warning: oklch(92% 0.12 95.746);
+  --color-warning-content: oklch(17.113% 0.016 74.427);
+  --color-error: oklch(63% 0.237 25.331);
+  --color-error-content: oklch(100% 0 0);
+
+  /* border radius */
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+
+  /* base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* border size */
+  --border: 1px;
+
+  /* effects */
+  --depth: 1;
+  --noise: 0;
+}
+
+
+
+/**
+    The lines above are intact.
+    The lines below were added by maryUI installer.
+*/
+
+/** daisyUI /themes: light --default, dark --prefersdark;*/
+@plugin "daisyui" {
+    themes: all;
+    name: "light";
+  default: true;
+  --color-primary: blue;
+  --color-secondary: teal;
+}
+
+/* maryUI */
+@source "../../vendor/robsontenorio/mary/src/View/Components/**/*.php";
+
+/* Theme toggle */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/**
+* Paginator - Traditional style
+* Because Laravel defaults does not match well the design of daisyUI.
+*/
+
+.mary-table-pagination span[aria-current="page"] > span {
+    @apply bg-primary text-base-100
+}
+
+.mary-table-pagination button {
+    @apply cursor-pointer
 }

@@ -1,0 +1,19 @@
+#26/05/2025
+    - Installed Filament v3.3 on top of laravel 12 without any starter kit
+    - Pushed the project on github
+    - added a new branch for permission and permisison groups
+#27/05/2025
+    - created migrations for permission, group and group_permissions
+    * Added "Filament Breezy Package" for profile management
+    * Installed "Sanctum" 
+#02/05/2025
+    - Created ImageCarousel Component,Model and migration
+    - carousel is working properly 
+    ? needs some customization
+        - position of Title mobile screen
+        - size of Title on mobile screen
+#09/06/2025
+    - Using MaryUI (which is built on daisyUI)
+    - composer require owenvoke/blade-fontawesome
+
+ 
