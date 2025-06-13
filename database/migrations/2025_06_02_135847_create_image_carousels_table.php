@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('image_carousels', function (Blueprint $table) {
             $table->id();
-            $table->string('image');       // store image path or URL
             $table->string('title');
             $table->text('description');
             $table->string('url')->nullable();
