@@ -16,7 +16,7 @@
             <!-- right side -->
             <div class="md:col-span-8 lg:col-span-9">
                 @foreach($articles as $article)
-                <div class="mx-auto max-w-5xl  my-10">
+                <div class="mx-auto max-w-5xl  my-4">
                     <livewire:article.article-card :article="$article" :key="$article->id" />
                 </div>
                 @endforeach

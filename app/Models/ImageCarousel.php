@@ -3,14 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
-class ImageCarousel extends Model implements HasMedia
+class ImageCarousel extends Model
 {
-  use InteractsWithMedia;
-
   protected $fillable = [
+    'image',
     'title',
     'description',
     'url',

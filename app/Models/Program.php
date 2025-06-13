@@ -9,14 +9,9 @@ use Illuminate\Support\Str;
 use Filament\Forms\Components\Split;
 use Filament\Forms\Components\Section;
 use Illuminate\Database\Eloquent\Model;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Program extends Model implements HasMedia
+class Program extends Model
 {
-    use InteractsWithMedia;
-    
     protected $fillable = 
     [
         'image_path',
@@ -62,12 +57,9 @@ class Program extends Model implements HasMedia
                     Section::make('New play school program')
                         ->description('Crate a new program for play school kids')
                         ->schema([
-                            SpatieMediaLibraryFileUpload::make('images')
-                                ->label('Program\'s Photo')
-                                ->collection('program-images')
+                            Forms\Components\FileUpload::make('image_path')
                                 ->image()
-                                ->rules(['image', 'mimes:jpg,jpeg,png,webp']) 
-                                ->imageEditor(),
+                                ->directory('playschool-program-image'),
                             Forms\Components\TextInput::make('title')
                                 ->required()
                                 ->maxLength(255)
