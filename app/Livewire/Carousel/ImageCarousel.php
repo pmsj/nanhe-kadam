@@ -12,13 +12,7 @@ class ImageCarousel extends Component
     public function mount(ModelsImageCarousel $carousel)
     {
 
-        $this->slides = ModelsImageCarousel::with('media')->get()->map(function ($item) {
-        return [
-            'image' => $item->getFirstMediaUrl('carousel-images'), // 'carousel' is the media collection name
-            'title' => $item->title ?? '', // optional, if supported by your carousel version
-            'description' => $item->description ?? '', // optional
-        ];
-    })->toArray();
+        $this->slides = ModelsImageCarousel::all()->toArray();
       
     }
     public function render()

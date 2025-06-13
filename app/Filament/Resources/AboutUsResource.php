@@ -2,17 +2,16 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Tables;
-use App\Models\AboutUs;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Filament\Resources\Resource;
-use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\AboutUsResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use App\Filament\Resources\AboutUsResource\RelationManagers;
+use App\Models\AboutUs;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class AboutUsResource extends Resource
 {
@@ -33,8 +32,6 @@ class AboutUsResource extends Resource
     {
         return $table
             ->columns([
-                SpatieMediaLibraryImageColumn::make('images')
-                    ->collection('aboutus-images'),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')

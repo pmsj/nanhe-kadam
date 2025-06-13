@@ -2,16 +2,15 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Tables;
+use App\Filament\Resources\ProgramResource\Pages;
+use App\Filament\Resources\ProgramResource\RelationManagers;
 use App\Models\Program;
 use Filament\Forms\Form;
-use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\ProgramResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
-use App\Filament\Resources\ProgramResource\RelationManagers;
 
 class ProgramResource extends Resource
 {
@@ -32,10 +31,6 @@ class ProgramResource extends Resource
     {
         return $table
             ->columns([
-                SpatieMediaLibraryImageColumn::make('images')
-                    ->label('Program\'s Photo')
-                    ->collection('program-images')
-                    ->circular(),
                 Tables\Columns\TextColumn::make('title')
                     ->words(5)
                     ->searchable(),

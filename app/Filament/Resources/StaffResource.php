@@ -2,17 +2,16 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Tables;
-use App\Models\Staff;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Filament\Resources\Resource;
-use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\StaffResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\StaffResource\RelationManagers;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use App\Models\Staff;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class StaffResource extends Resource
 {
@@ -33,10 +32,6 @@ class StaffResource extends Resource
     {
         return $table
             ->columns([
-                SpatieMediaLibraryImageColumn::make('images')
-                    ->label('Staff\'s Photo')
-                    ->collection('staff-images')
-                    ->circular(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('designation')
