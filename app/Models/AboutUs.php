@@ -6,12 +6,16 @@ use Filament\Forms;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Illuminate\Support\Str;
+use Spatie\MediaLibrary\HasMedia;
 use Filament\Forms\Components\Split;
 use Filament\Forms\Components\Section;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
-class AboutUs extends Model
+class AboutUs extends Model  implements HasMedia
 {
+    use InteractsWithMedia;
      protected $fillable = [
         'title',
         'slug',
@@ -31,6 +35,12 @@ class AboutUs extends Model
            Split::make([
             Section::make()
                 ->schema([
+                        SpatieMediaLibraryFileUpload::make('images')
+                        ->label('Image for About-us section')
+                        ->collection('aboutus-images')
+                        ->image()
+                        ->rules(['image', 'mimes:jpg,jpeg,png,webp']) 
+                        ->imageEditor(),
                         Forms\Components\TextInput::make('title')
                             ->required()
                             ->maxLength(255)

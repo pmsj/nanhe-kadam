@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ImageCarouselResource\Pages;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use App\Filament\Resources\ImageCarouselResource\RelationManagers;
 
 class ImageCarouselResource extends Resource
@@ -38,17 +40,19 @@ class ImageCarouselResource extends Resource
                             ->required(),
                     ]),
                     Section::make([
-                        Forms\Components\FileUpload::make('image')
+                        SpatieMediaLibraryFileUpload::make('images')
                         ->label('Carousel Image')
+                        ->collection('carousel-images')
                         ->image()
-                        ->directory('ImageCarousel')
                         ->rules(['image', 'mimes:jpg,jpeg,png,webp']) 
                         ->imageEditor()
-                        // ->directory('ImageCarousel')
                         ->required(),
                         Forms\Components\TextInput::make('url')
+                            ->hint('for action button')
                             ->maxLength(255),
                         Forms\Components\TextInput::make('urlText')
+                            ->label('Name for Action Button')
+                            ->helperText('eg: Admission/Contact etc.')
                             ->maxLength(255),
                     ]),
                ])->from('md')
@@ -59,7 +63,8 @@ class ImageCarouselResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image'),
+                SpatieMediaLibraryImageColumn::make('images')
+                    ->collection('carousel-images'),
                 Tables\Columns\TextColumn::make('title')
                     ->words(5)
                     ->searchable(),

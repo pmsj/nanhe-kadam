@@ -10,18 +10,19 @@ use Filament\Forms\Set;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
-use Filament\Resources\Resource;
-use Filament\Infolists\Components\Section;
-use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\ArticleResource\Pages;
-use App\Filament\Resources\ArticleResource\Pages\ViewArticle;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\ArticleResource\RelationManagers;
-use Filament\Infolists\Components\Group;
-use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Components\Section as ComponentsSection;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Infolist;
+use Filament\Resources\Resource;
+use Filament\Infolists\Components\Group;
+use Illuminate\Database\Eloquent\Builder;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\ImageEntry;
+use App\Filament\Resources\ArticleResource\Pages;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use App\Filament\Resources\ArticleResource\RelationManagers;
+use App\Filament\Resources\ArticleResource\Pages\ViewArticle;
+use Filament\Infolists\Components\Section as ComponentsSection;
 
 class ArticleResource extends Resource
 {
@@ -46,6 +47,10 @@ class ArticleResource extends Resource
                     ->label('Author')
                     ->numeric()
                     ->sortable(),
+                SpatieMediaLibraryImageColumn::make('images')
+                    ->label('Article\'s Photo')
+                    ->extraImgAttributes(['class' => 'rounded-lg'])
+                    ->collection('article-images'),
                 Tables\Columns\TextColumn::make('title')
                     ->words(7)
                     ->searchable(),
@@ -98,6 +103,11 @@ class ArticleResource extends Resource
                 Section::make('Article Details')
                 ->collapsible()
                 ->schema([
+                  ImageEntry::make('image_url')
+                    ->label('Article\'s Photo')
+                    ->extraImgAttributes(['class' => 'rounded-lg'])
+                    ->extraAttributes(['class' => 'rounded-lg w-auto h-auto max-w-full rounded-lg'])
+                   ->hidden(fn ($record) => !$record->image_url),
                     TextEntry::make('title'),
                     TextEntry::make('body')
                     ->html(),

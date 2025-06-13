@@ -3,12 +3,17 @@
 namespace App\Models;
 
 use Filament\Forms;
-use Filament\Forms\Components\Section;
+use Spatie\MediaLibrary\HasMedia;
 use Filament\Forms\Components\Split;
+use Filament\Forms\Components\Section;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
-class Staff extends Model
+class Staff extends Model implements HasMedia
 {
+    use InteractsWithMedia;
+
     protected $fillable = [
         'name',
         'designation',
@@ -44,6 +49,12 @@ class Staff extends Model
                     ]),
                       Section::make('Extra Details')
                         ->schema([
+                            SpatieMediaLibraryFileUpload::make('images')
+                                ->label('Staff\'s Photo')
+                                ->collection('staff-images')
+                                ->image()
+                                ->rules(['image', 'mimes:jpg,jpeg,png,webp']) 
+                                ->imageEditor(),
                             Forms\Components\Select::make('user_id')
                                 ->label('User')
                                 ->helperText('Associate staff details with the same user as staff')

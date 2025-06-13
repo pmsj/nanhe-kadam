@@ -14,7 +14,7 @@
                 <x-card title="" subtitle="" class="">
                     <p>{!! $program->description !!}</p>
                     <x-slot:figure>
-                        <img src="https://picsum.photos/500/200" class=" -hue-rotate-45 w-full rounded-t-xl" />
+                        <img src="{{ $program->getFirstMediaUrl('program-images') }}" class="w-full rounded-xl" />
                     </x-slot:figure>
                 </x-card>
             </div>
