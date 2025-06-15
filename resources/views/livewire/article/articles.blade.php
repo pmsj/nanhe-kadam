@@ -26,7 +26,4 @@
             </div>
         </div>
     </div>
-    <footer class="p-5 mt-10">
-        <x-footer />
-    </footer>
 </div>

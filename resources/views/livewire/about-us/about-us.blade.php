@@ -23,9 +23,5 @@
         </x-tabs>
     </div>
     <!-- Our Team Section -->
-   <livewire:staff-members.our-team />
-    <footer class="p-5 mt-10">
-           <x-footer />
-    </footer>
-    
+   <livewire:staff-members.our-team />    
 </div>

@@ -33,7 +33,10 @@
         {{-- The `$slot` goes here --}}
         <x-slot:content>
             {{ $slot }}
+        
+        <livewire:footer.footer />
         </x-slot:content>
+
     </x-main>
 
     {{-- TOAST area --}}

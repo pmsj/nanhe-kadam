@@ -1,4 +1,4 @@
- <div class="mx-auto w-full mt-20">
+ <div class="mx-auto w-full mt-30">
      <div class=" p-2 flex justify-between">
          <div>
              <h2 class="text-xl font-bold">Nanhe Kadam</h2>
