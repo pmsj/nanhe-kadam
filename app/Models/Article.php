@@ -5,29 +5,19 @@ namespace App\Models;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Illuminate\Support\Str;
-use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Section;
-use Spatie\MediaLibrary\InteractsWithMedia;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
-class Article extends Model implements HasMedia
+class Article extends Model
 {
-   use InteractsWithMedia;
-
+   
     protected $fillable = [
         'user_id',
         'title',
         'slug',
         'body'
     ];
-
-    public function getImageUrlAttribute(): ?string
-    {
-        return $this->getFirstMediaUrl('article-images');
-    }
 
         //display individual by slug
     public function getRouteKeyName(): string
@@ -70,40 +60,30 @@ class Article extends Model implements HasMedia
     public static function getForm(): array
     {
         return [
-                  Section::make('Write a new article')
-                    ->schema([
-                        TextInput::make('title')
-                            ->required()
-                            ->maxLength(255)
-                            ->live(onBlur: true)
-                            ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state, ?string $operation, ?Article $article) {
-                                
-                                if($operation == 'edit')
-                                {
-                                    return;
-                                }
+                    TextInput::make('title')
+                    ->required()
+                    ->maxLength(255)
+                     ->live(onBlur: true)
+                    ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state, ?string $operation, ?Article $article) {
+                        
+                        if($operation == 'edit')
+                        {
+                            return;
+                        }
 
-                                if (($get('slug') ?? '') !== Str::slug($old)) {
-                                    return;
-                                }
-                                    $set('slug', Str::slug($state));
-                                }),
-                        TextInput::make('slug')
-                            ->required()
-                            ->helperText('This filed is filled automatically based on the title')
-                            ->maxLength(255)
-                            ->disabled(fn(?string $operation, ?Article $article) => $operation =='edit'),
-                        SpatieMediaLibraryFileUpload::make('images')
-                            ->label('Article\'s Photo')
-                            ->collection('article-images')
-                            ->image()
-                            ->rules(['image', 'mimes:jpg,jpeg,png,webp']) 
-                            ->imageEditor()
-                            ->columnSpanFull(),
-                        RichEditor::make('body')
-                            ->required()
-                            ->columnSpanFull(),
-                    ])->columns(2)
+                        if (($get('slug') ?? '') !== Str::slug($old)) {
+                            return;
+                        }
+                            $set('slug', Str::slug($state));
+                        }),
+                TextInput::make('slug')
+                    ->required()
+                    ->helperText('This filed is filled automatically based on the title')
+                    ->maxLength(255)
+                    ->disabled(fn(?string $operation, ?Article $article) => $operation =='edit'),
+                RichEditor::make('body')
+                    ->required()
+                    ->columnSpanFull(),
         ];
     }
 }
