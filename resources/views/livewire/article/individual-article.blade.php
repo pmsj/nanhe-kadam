@@ -1,7 +1,7 @@
-<div class="">
+<div class="bg-neutral text-neutral-content ">
     <div class="mx-auto max-w-5xl">
         <div class="flex justify-between items-center mt-5 mb-10">
-            <div>
+            <div class="my-5">
                 <x-button 
                     link="{{ route('articles') }}" 
                     label="go back" icon="o-arrow-left"  
@@ -24,8 +24,8 @@
         />
         <div class="">
             <div>
-                <x-card title="" subtitle="" class="">
-                    <p>{!! str($article->body)->sanitizeHtml()  !!}</p> 
+                <x-card title="" subtitle="" class="bg-neutral text-neutral-content">
+                    <h4 class="text-lg">{!! str($article->body)->sanitizeHtml()  !!}</h4> 
                     @if($article->getFirstMediaUrl('article-images'))
                     <x-slot:figure>
                         <img 
