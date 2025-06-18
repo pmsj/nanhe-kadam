@@ -4,7 +4,7 @@
         <x-card title="Announcements" subtitle="" separator />
         <div class="grid lg:grid-cols-2 lg:space-x-5 space-y-5 lg:space-y-0">
                 @foreach($activeAnnouncements as $activeAnnouncement)
-                    <div class="card space-y-8 bg-secondary text-secondary-content ">
+                    <div class="card space-y-8 bg-secondary text-secondary-content">
                         <div class="flex space-x-5">
                             <div class="">
                                 <x-icon 

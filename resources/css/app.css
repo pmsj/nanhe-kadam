@@ -11,6 +11,8 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+@plugin "@tailwindcss/typography";
+
 @layer base{
     h3 {
         @apply  text-lg font-bold
@@ -39,14 +41,14 @@
   --color-base-200: oklch(96% 0.007 247.896); /* fixed*/
   --color-base-300: oklch(92% 0.013 255.508); /* fixed*/
   --color-base-content: oklch(45% 0.085 224.283); /* */
-  --color-primary: #FFC900; /* fixed*/
+  --color-primary: #ffea41; /* fixed*/ 
   --color-primary-content: oklch(27% 0.077 45.635);
   --color-secondary: #1A5F7A; /* fixed*/    
   --color-secondary-content: oklch(100% 0 0);
   --color-accent: oklch(98% 0.003 247.858);
   --color-accent-content: oklch(44% 0.043 257.281);
-  --color-neutral: oklch(98% 0.019 200.873);
-  --color-neutral-content: oklch(39% 0.09 240.876);
+  --color-neutral: #fffee7; /* fixed*/    
+  --color-neutral-content: oklch(55% 0.135 66.442); /* fixed*/    
   --color-info: oklch(88% 0.059 254.128);
   --color-info-content: oklch(44% 0.043 257.281);
   --color-success: oklch(79% 0.209 151.711);

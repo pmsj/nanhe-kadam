@@ -18,7 +18,7 @@
                 <x-slot:actions separator class="justify-between">
                     <div class="space-x-2">
                         <x-button icon="o-share" class="btn-accent btn-accent-content btn-circle btn-sm" />
-                        <x-button label="Know more" class="btn-primary btn-sm" link="{{ route('programs.show', $program->slug) }}" />
+                        <x-button label="Know more" class="btn-secondary btn-sm" link="{{ route('programs.show', $program->slug) }}" />
                     </div>
                 </x-slot:actions>
             </x-card>
