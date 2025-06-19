@@ -1,7 +1,11 @@
-<div class="">
+<div class="" id="announcements">
       @if($activeAnnouncements->count() > 0)
      <div class="my-20">
-        <x-card title="Announcements" subtitle="" separator />
+        <x-card 
+            title="Announcements" 
+            subtitle="" 
+            separator
+        />
         <div class="grid lg:grid-cols-2 lg:space-x-5 space-y-5 lg:space-y-0">
                 @foreach($activeAnnouncements as $activeAnnouncement)
                     <div class="card space-y-8 bg-secondary text-secondary-content">
@@ -25,5 +29,4 @@
         </div>
     </div>
     @endif
-
 </div>

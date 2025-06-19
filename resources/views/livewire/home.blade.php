@@ -2,6 +2,9 @@
     <!-- HEADER -->
     <!-- Image carousel  -->
      <div>
+        <livewire:message.welcome-message />
+     </div>
+     <div>
         <livewire:carousel.image-carousel />
     </div>
     <!-- Announcements -->

@@ -1,26 +1,13 @@
  <div class="mx-auto w-full mt-30">
      <div class=" p-2 flex justify-between">
+        {{-- Brand --}}
          <div>
-             <h2 class="text-xl font-bold">Nanhe Kadam</h2>
+             <x-brand />
          </div>
-         <div class="space-x-2">
-            <a href="">
-                <x-icon 
-                    name="fab.youtube" 
-                    class="w-8 h-8 text-error transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" 
-            />
-            </a> <a href="">
-                <x-icon 
-                    name="fab.facebook" 
-                    class="w-6 h-6 text-blue-500 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" 
-                />
-            </a> <a href="">
-                <x-icon 
-                    name="fab.instagram" 
-                    class="w-6 h-6 text-pink-600 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" 
-                />
-            </a>
-         </div>
+          {{-- social media links --}}
+        <div>
+            <livewire:footer.social-media-links />
+        </div>
      </div>
      <div class="p-10 space-y-10 lg:flex justify-between border-y-1 border-slate-100">
          <div class="space-y-5">
@@ -39,24 +26,44 @@
                  </div>
                  <div></div>
              </div>
-
          </div>
-         <div class="space-x-20 flex">
-             <div>Learn</div>
-             <div>Get help</div>
-             <div>Join</div>
+         <div class="grid grid-cols-2 lg:grid-cols-3 gap-5">
+            {{-- links section --}}
+             <div>
+                <span class="text-primary-content">Links</span>
+                <div class="mt-3">
+                    <livewire:footer.footer-link />
+                </div>
+             </div>
+             {{--Info links section --}}
+              <div>
+                <span class="text-primary-content">Information</span>
+                <div class="mt-3">
+                    <livewire:footer.footer-info-link/>
+                </div>
+             </div>
+             {{--Other links section --}}
+              <div>
+                <span class="text-primary-content">Other</span>
+                <div class="mt-3">
+                    <livewire:footer.footer-other-link />
+                </div>
+             </div>
          </div>
      </div>
-     <!-- Terms and conditions -->
+      {{-- Terms and conditions --}}
      <div class="md:flex justify-between text-sm my-4 space-y-5">
          <div class="flex space-x-5">
-             <div>Privacy</div>
-             <div>Terms</div>
-             <div>Status</div>
-             <div>Uses</div>
+             <div>
+                <a href="{{ route('privacy') }}" class="hover:underline">Privacy</a>
+            </div>
+             <div>
+                <a href="{{ route('terms') }}" class="hover:underline">Terms</a>
+            </div>
          </div>
+         <!-- copyright -->
          <div>
-             <p>&copy; Nanhe Kadam {{date("Y")}}. All Rights Reserved. Made in the India.</p>
+             <livewire:footer.copyright />
          </div>
      </div>
  </div>

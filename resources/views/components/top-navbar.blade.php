@@ -6,7 +6,7 @@
         </label>
 
         {{-- Brand --}}
-        <div class="primary font-bold">Nanhe Kadam</div>
+        <div class="primary font-bold">{{ config('app.name') }}</div>
     </x-slot:brand>
     something
     {{-- Right side actions --}}
