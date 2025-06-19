@@ -28,6 +28,15 @@
     .card{
         @apply rounded-md px-6 py-8
     }
+
+    .nanhe-kadam-gradient{
+        @apply bg-gradient-to-r from-neutral via-primary to-secondary
+    }
+
+     .nanhe-kadam-brand-gradient{
+        @apply bg-gradient-to-r from-primary via-error to-secondary
+    }
+    
 }
 
 
@@ -37,7 +46,7 @@
   prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
   color-scheme: light; /* color of browser-provided UI */
 
-  --color-base-100: oklch(100% 0 0); /* fixed*/
+  --color-base-100: #FEFDFC; /* fixed => background*/
   --color-base-200: oklch(96% 0.007 247.896); /* fixed*/
   --color-base-300: oklch(92% 0.013 255.508); /* fixed*/
   --color-base-content: oklch(45% 0.085 224.283); /* */

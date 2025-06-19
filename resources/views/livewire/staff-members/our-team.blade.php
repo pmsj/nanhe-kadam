@@ -19,6 +19,7 @@
                         </div>
                     </div>
                     <p class="mt-4 group-hover:text-slate-300">{!! $member->bio !!}</p>
+                    @if($member->getFirstMediaUrl('staff-images'))
                     <div class="flex mt-4 -mx-2">
                         <a href="#" class="mx-2 text-gray-600  group-hover:text-white" aria-label="youtube">
                                 <x-icon 
@@ -39,6 +40,7 @@
                             />
                         </a>
                     </div>
+                    @endif
                 </div>
                 @endforeach
             </div>

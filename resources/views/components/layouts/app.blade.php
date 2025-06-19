@@ -14,7 +14,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased scroll-smooth">
 
     {{-- The navbar with `sticky` and `full-width` --}}
     <x-nav sticky full-width class="border-none">
