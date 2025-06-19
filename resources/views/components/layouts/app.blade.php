@@ -17,7 +17,7 @@
 <body class="font-sans antialiased scroll-smooth">
 
     {{-- The navbar with `sticky` and `full-width` --}}
-    <x-nav sticky full-width class="border-none">
+    <x-nav sticky full-width class="border-none bg-neutral">
         <x-top-navbar />
     </x-nav>
 
@@ -26,7 +26,12 @@
 
         {{-- This is a sidebar that works also as a drawer on small screens --}}
         {{-- Notice the `main-drawer` reference here --}}
-        <x-slot:sidebar drawer="main-drawer" collapsible class="" collapse-text="Hide menu" class="bg-white">
+        <x-slot:sidebar 
+            drawer="main-drawer" 
+            collapsible class="" 
+            collapse-text="Hide menu" 
+            class="bg-white">
+            {{-- sidebar main content --}}
             <x-sidebar />
         </x-slot:sidebar>
 

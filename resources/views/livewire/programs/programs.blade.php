@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         @forelse($programs as $program)
         <div>
-            <x-card title="{{$program->short_title}}" subtitle="" class="bg-base-100 shadow-md transition duration-150 ease-in-out h-full">
+            <x-card title="{{$program->short_title}}" subtitle="" class="bg-base-100  shadow hover:shadow-2xl transition duration-200 ease-in-out h-full">
                 <p>{!! $program->short_description !!}</p>
                 <div class="">
                     <x-slot:figure class="">
@@ -18,7 +18,7 @@
                 <x-slot:actions separator class="justify-between">
                     <div class="space-x-2">
                         <x-button icon="o-share" class="btn-accent btn-accent-content btn-circle btn-sm" />
-                        <x-button label="Know more" class="btn-secondary btn-sm" link="{{ route('programs.show', $program->slug) }}" />
+                        <x-button label="Know more" class="btn-secondary btn-sm btn-soft" link="{{ route('programs.show', $program->slug) }}" />
                     </div>
                 </x-slot:actions>
             </x-card>

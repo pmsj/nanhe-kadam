@@ -46,7 +46,7 @@
   prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
   color-scheme: light; /* color of browser-provided UI */
 
-  --color-base-100: #FEFDFC; /* fixed => background*/
+  --color-base-100: #FEFDFC; /* fixed => background FEFDFC*/
   --color-base-200: oklch(96% 0.007 247.896); /* fixed*/
   --color-base-300: oklch(92% 0.013 255.508); /* fixed*/
   --color-base-content: oklch(45% 0.085 224.283); /* */

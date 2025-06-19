@@ -2,7 +2,7 @@
      <div class=" p-2 flex justify-between">
         {{-- Brand --}}
          <div>
-             <x-brand />
+                <x-brand />
          </div>
           {{-- social media links --}}
         <div>
