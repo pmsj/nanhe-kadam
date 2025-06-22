@@ -15,6 +15,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TermResource extends Resource
 {
+    protected static ?string $navigationGroup = 'Website';
+    protected static ?int $navigationSort = 15; 
+
     protected static ?string $model = Term::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
