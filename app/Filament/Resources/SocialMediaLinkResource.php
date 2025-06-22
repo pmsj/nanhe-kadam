@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SocialMediaLinkResource extends Resource
 {
+    protected static ?string $navigationGroup = 'Website';
+    protected static ?int $navigationSort = 10; 
     protected static ?string $model = SocialMediaLink::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-globe-alt';

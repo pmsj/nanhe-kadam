@@ -15,6 +15,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PrivacyResource extends Resource
 {
+    protected static ?string $navigationGroup = 'Website';
+    protected static ?int $navigationSort = 14; 
+    
     protected static ?string $model = Privacy::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-eye-slash';

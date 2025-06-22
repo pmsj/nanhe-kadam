@@ -15,6 +15,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class FooterOtherLinkResource extends Resource
 {
+    protected static ?string $navigationGroup = 'Website';
+    protected static ?int $navigationSort = 13; 
+    
     protected static ?string $model = FooterOtherLink::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-link';
